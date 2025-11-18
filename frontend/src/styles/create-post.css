@@ -1,0 +1,86 @@
+/* 페이지 컨테이너 */
+.post-create-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 16px;
+  background-color: var(--bg);
+}
+
+/* 제목 섹션 */
+.post-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.post-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* 작성 폼 */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* 입력 영역 */
+.title-input,
+.content-input {
+  width: 100%;
+  background: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+  transition: box-shadow 0.2s;
+}
+
+textarea.content-input {
+  height: 200px;
+  resize: none;
+}
+
+.title-input:focus,
+.content-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+/* 파일 업로드 */
+.file-box input[type="file"] {
+  padding: 6px;
+  font-size: 15px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* 완료 버튼 */
+.submit-btn {
+  margin-top: 20px;
+  width: 300px;
+  padding: 12px 32px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.submit-btn.active {
+  background: var(--primary-dark);
+}

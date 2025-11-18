@@ -1,0 +1,66 @@
+.page-signup {
+  justify-content: center;
+  align-items: center;
+}
+
+.page-signup .signup-card {
+  margin: 0 auto;            /* 수평 중앙 */
+  align-self: center;        /* flex 컨테이너 안이면 수직 정렬 */
+  width: 620px;
+  padding: 48px 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.page-signup .signup-title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+/* ========== 프로필 업로드 ========== */
+
+.page-signup .signup-profile {
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.page-signup .profile-preview {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background-color: #ddd;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-signup .plus-icon {
+  font-size: 48px;
+  color: #777;
+}
+
+.page-signup .profile-input {
+  display: none;
+}
+
+/* ========== 폼 ========== */
+
+.page-signup .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* signup-btn 활성화 */
+.page-signup .signup-btn.active {
+  background-color: var(--primary-dark);
+}
+
+/* 로그인하러가기 */
+.page-signup .btn-to-login {
+  margin-top: 4px;
+}

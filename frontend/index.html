@@ -4,10 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>My Wiki</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/styles/login.css" />
+    <link rel="stylesheet" href="./src/styles/signup.css" />
+    <link rel="stylesheet" href="./src/styles/board.css" />
+    <link rel="stylesheet" href="./src/styles/post-detail.css" />
+    <link rel="stylesheet" href="./src/styles/create-post.css" />
+    <link rel="stylesheet" href="./src/styles/edit-post.css" />
+    <link rel="stylesheet" href="./src/styles/edit-profile.css" />
+    <link rel="stylesheet" href="./src/styles/edit-password.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <div class="side-image left"></div>
+    <div class="side-image right"></div>
+
+    <header id="header"></header>
+
+    <main id="app"></main>
+
+    <div id="toast" class="toast"></div>
+
+    <div id="global-modal" class="modal">
+      <div class="modal-content">
+        <h3 class="modal-title"></h3>
+        <p class="modal-message"></p>
+        <div class="modal-actions">
+          <button class="btn cancel modal-cancel-btn">취소</button>
+          <button class="btn confirm modal-confirm-btn">확인</button>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

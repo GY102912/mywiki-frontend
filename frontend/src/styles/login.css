@@ -1,0 +1,27 @@
+/* 로그인 페이지 한정 스타일 */
+.page-login .login-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.page-login .login-card {
+  margin: 0 auto;            /* 수평 중앙 */
+  align-self: center;        /* flex 컨테이너 안이면 수직 정렬 */
+  width: 620px;
+  padding: 48px 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.page-login .login-title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+/* form 레이아웃 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

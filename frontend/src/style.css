@@ -1,96 +1,315 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --primary: #617484;
+    --primary-dark: #0d3b4a;
+    --bg: #c9c2b8;
+    --text: #321706;
+    --border: #200e03;
+    --danger: #b92142;
+    --radius: 8px;
+    --font-main: 'Pretendard', 'Noto Sans KR', sans-serif;
+    --font-title: 'Sandoll GogoRound', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* Side Image */
+.side-image {
+  pointer-events: none;    /* ⭐ 클릭/호버 등 모든 이벤트 비활성화 */
+  position: fixed;
+  top: 0;
+  width: 25vw;                  /* ⭐ 화면 너비의 25%로 (반응형) */
+  max-width: 720px;             /* 너무 넓어지는 걸 방지 */
+  height: 100vh;       /* 전체 화면 높이 */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;         /* 콘텐츠 뒤로 보내기 */
+  opacity: 0.6;        /* 필요하면 흐리게 */
 }
 
+.side-image.left {
+  left: 0;
+  background-image: url('/src/assets/library.jpeg');
+  background-position: left center;
+}
+
+.side-image.right {
+  right: 0;
+  background-image: url('/src/assets/library.jpeg');
+  background-position: right center;
+}
+
+/* 중앙 컨텐츠가 좌우 이미지에 가리지 않도록 */
+#app, header, .page-edit-profile, main {
+  position: relative;
+}
+
+/* Body 기본 */
 body {
-  margin: 0;
+    display: block;
+    color: var(--text);
+    background-color: var(--bg);
+    font-family: var(--font-main);
+    min-height: 100vh;
+}
+
+/* Label 기본 */
+label {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* 헬퍼 텍스트 */
+.helper-text {
+  margin-top: 6px;
+  margin-left: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--danger);
+}
+
+/* 공통 Header */
+.app-header {
+    text-align: center;
+    padding: 32px 0 16px;
+}
+
+.app-title {
+    font-family: var(--font-title);
+    font-size: 46px;
+    margin: 30px 0 20px 0;
+    font-weight: 100;
+}
+
+/* 헤더 */
+#header {
+  width: 100%;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.page-header {
+  width: 100%;
+  max-width: 900px;          /* main과 동일하게 맞춤 */
 }
 
-#app {
-  max-width: 1280px;
+.header-inner {
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page-title {
+  font-family: 'Sandoll GogoRound', sans-serif;
+  font-weight: 200;
+  font-size: 42px;
+  color: var();
+}
+
+/* 프로필 드롭다운 */
+.profile-menu {
+  position: absolute;
+  right: 40px;
+  top: 28px;
+}
+
+.profile-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  background-color: #ddd;
+  display: block;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 200;
+  top: 64px;
+  right: 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 8px 0;
+  width: 160px;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+}
+
+.dropdown li a:hover {
+  font-weight: 600;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Divider는 원하면 header.html 템플릿로 이동 */
+.app-header::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 2px solid rgba(0,0,0,0.1);
+}
+
+/* 공통 Input 스타일 */
+.input-field {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-size: 18px;
+    color: #000;
+    background-color: var(--bg);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.input-field::placeholder {
+  font-size: 18px;
+  color: var(--primary-dark);    /* 원하는 색 */
+  opacity: 1;     /* 브라우저 기본 흐림 제거 */
+}
+
+/* 공통 Button 스타일 */
+.btn {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var();
+}
+
+/* 공통 폼 그룹 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 토스트 메세지 */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 320px;            /* 스크린샷처럼 아래쪽 중앙 */
+  transform: translateX(-50%);
+  
+  min-width: 120px;
+  padding: 12px 26px;
+
+  background-color: var(--primary);   /* 보라색 톤, 스크린샷 기반 */
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 24px;         /* 둥근 직사각형 */
+  text-align: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out,
+              transform 0.3s ease-out;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, -10px); /* 살짝 위로 올라오는 애니메이션 */
+}
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.modal-actions {
+  margin: 20px 20px 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.card {
-  padding: 2em;
+.btn.cancel:hover,
+.btn.confirm:hover {
+  background-color: var(--primary);
+  color: #fff;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* 뒤로가기 버튼 */
+.back-btn {
+  position: absolute;
+  left: 40px;
+  top: 36px;
+  font-size: 28px;
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var();
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.back-btn:hover {
+  opacity: 0.7;
 }
